@@ -21,10 +21,18 @@ public class Challenge1 {
     // this method responsible for output
     public static void main(String[] args) {
         Challenge1 app = new Challenge1();
+        String lastName = "";
+        String msg = "";
         
         String fullName = JOptionPane.showInputDialog("Enter full name (use Format: first last):");
-        String lastName = app.extractLastName(fullName);
-        String msg = "Assuming you enterd it correctly, Your last name is: " + lastName;
+        try{
+        lastName = app.extractLastName(fullName);
+         msg = "Assuming you enterd it correctly, Your last name is: " + lastName;
+        }
+        catch(IllegalArgumentException e){
+        msg = e.getMessage();
+        }
+       
         JOptionPane.showMessageDialog(null, msg);
     }
     
